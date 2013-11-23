@@ -14,5 +14,8 @@ Release notes
 1.1.1 - 23.11.2013
 
 *    plugin zip can be build with gradle
+
+1.1.2 - 23.11.2013
+
 *    added missing libs and dependencies
 
