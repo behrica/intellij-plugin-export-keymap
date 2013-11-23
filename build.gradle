@@ -17,8 +17,8 @@ dependencies {
     compile group: 'org.codehaus.groovy', name: 'groovy', version: '1.8.6'
 
     // take dependencies from local Intellij installation
-    compile fileTree(dir: intellijHome + 'lib', includes: ['util.jar','annotations.jar','openapi.jar','extensions.jar','idea.jar'])
-
+    //compile fileTree(dir: intellijHome + 'lib', includes: ['util.jar','annotations.jar','openapi.jar','extensions.jar','idea.jar'])
+  compile files ( 'libs/intellij-idea-12.1.2.jar')
   // not sure, if there is a public repository somewhere on teh internet containing the intellij dependencies
  //    compile group: 'com.jetbrains', name: 'intellij-idea', version: '12.1.2'
 
