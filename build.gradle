@@ -15,7 +15,14 @@ sourceSets.main.groovy.srcDir 'src/main/java'
 dependencies {
     compile group: 'com.itextpdf', name: 'itextpdf', version: '5.1.3'
     compile group: 'org.codehaus.groovy', name: 'groovy', version: '1.8.6'
-    compile fileTree(dir: '/home/carsten/idea-IU-129.1359/lib', includes: ['util.jar','annotations.jar','openapi.jar','extensions.jar','idea.jar'])
+
+    // take dependencies from local Intellij installation
+    compile fileTree(dir: intellijHome + 'lib', includes: ['util.jar','annotations.jar','openapi.jar','extensions.jar','idea.jar'])
+
+  // not sure, if there is a public repository somewhere on teh internet containing the intellij dependencies
+ //    compile group: 'com.jetbrains', name: 'intellij-idea', version: '12.1.2'
+
+
 }
 
 jar {
