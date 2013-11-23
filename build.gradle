@@ -24,3 +24,8 @@ jar {
         into('META-INF')
     }
 }
+task plugin(dependsOn: 'assemble', type:Zip){
+    from 'libs'
+    from jar.outputs.files
+    into 'intellij-keymap/lib'
+}
