@@ -103,40 +103,8 @@ class Generator {
     }
     
     context.data.each { it.invite(visitor) }
-    if (context.goToActionShortcut) {
-      def actionTableContainer = new PdfPTable(1)
-      actionTableContainer.widthPercentage = 100f
-      
-      def actionTable = new PdfPTable(1)
-      actionTable.widthPercentage = 100f
-      actionTable.extendLastRow = true
 
-      def actionHint = new Paragraph(String.format(GO_TO_ACTION_TEXT, context.goToActionShortcut), ACTION_GROUP_FONT)
-      actionHint.alignment = Element.ALIGN_MIDDLE
-      def actionHintCell = new PdfPCell(actionHint)
-      actionHintCell.border = Rectangle.NO_BORDER
-      actionHintCell.horizontalAlignment = Element.ALIGN_CENTER
-      actionHintCell.verticalAlignment = Element.ALIGN_MIDDLE
-      actionTable.addCell(actionHintCell)
 
-      if (context.realGenerationIteration) {
-        def image = loadImage(GO_TO_ACTION_IMAGE_PATH, context, false)
-        def imgPadding = 5f
-        image.scaleAbsolute(context.headerWidth / 3 * 2 as float,
-                            (context.maxRealColumnHeight - context.currentHeight - context.goToActionTextHeight - imgPadding) as float)
-        def imgCell = new PdfPCell(image)
-        imgCell.paddingBottom = imgPadding
-        imgCell.horizontalAlignment = Rectangle.ALIGN_CENTER
-        imgCell.border = Rectangle.NO_BORDER
-        actionTable.addCell(imgCell)
-      }
-      
-      def actionTableCell = new PdfPCell(actionTable)
-      actionTableCell.borderColor = COLOR_BORDER_HEADER
-      
-      actionTableContainer.addCell(actionTableCell)
-      context.currentColumn().addElement(actionTableContainer)
-    }
   }
   
   private def addFooter(@NotNull PdfPTable rootTable, @NotNull GenerationContext context) {
