@@ -35,4 +35,5 @@ task plugin(dependsOn: 'assemble', type:Zip){
     from 'libs'
     from jar.outputs.files
     into 'intellij-keymap/lib'
+    exclude "intellij-idea-12.1.2.jar"
 }
